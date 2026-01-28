@@ -5,8 +5,8 @@ export interface TeamMember {
   name: string;
   role: string;
   image: string;
-  instagram:string
-  linkedin:string
+  instagram?:string;
+  linkedin?:string;
 }
 
 export const SOCIETY_LOGO = "https://i.ibb.co/30Bw8Y0/rangmanch-logo.png";
