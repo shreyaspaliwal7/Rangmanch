@@ -13,11 +13,11 @@ const Movies: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {MOVIES.map((movie) => (
             <div key={movie.id} className="group relative bg-stone-900 overflow-hidden border border-white/5 transition-all duration-500 hover:border-[#d4af37]/30">
-              <div className="aspect-[2/3] overflow-hidden">
+              <div className="aspect-[2/3] overflow-hidden bg-black flex items-center justify-center">
                 <img
                   src={movie.thumbnail}
                   alt={movie.title}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
 
