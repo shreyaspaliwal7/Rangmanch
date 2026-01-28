@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -86,7 +86,7 @@ function App() {
         )}
       </main>
       
-      <Footer onNavigate={navigateTo} />
+      <Footer />
       
       {/* Cinematic Frame Overlay */}
       <div className="fixed inset-0 pointer-events-none z-[60] border-[10px] md:border-[20px] border-[#0c0a09] opacity-60"></div>

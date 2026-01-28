@@ -1,11 +1,7 @@
 
 import React from 'react';
 
-interface FooterProps {
-  onNavigate: (view: 'HOME' | 'TEAM') => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   const socials = [
     {
       name: 'Instagram',

@@ -1,8 +1,7 @@
 
-import { div } from 'framer-motion/client';
-import React from 'react';
+ 
 
-const About: React.FC = () => {
+const About = () => {
   return (
     <section id="about" className="py-24 md:py-32 bg-[#0c0a09] relative overflow-hidden">
       <div className="container mx-auto px-6 relative w-full h-full flex items-center justify-center z-50"> 
