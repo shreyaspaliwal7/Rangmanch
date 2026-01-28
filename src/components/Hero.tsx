@@ -99,7 +99,7 @@ const Hero: React.FC = () => {
           <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-[#c5a059] shadow-[0_0_15px_rgba(197,160,89,0.4)]"></div>
 
           {/* Central Target Mover - Precisely Centered horizontally, Offset vertically below title */}
-          <div className="absolute top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-visible">
+          <div className="absolute hidden md:block top-[65%] left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none overflow-visible">
             {/* Outer Target Box - Subtle movement */}
             <div
               className="absolute w-64 h-64 -translate-x-1/2 -translate-y-1/2 border border-[#c5a059]/10 transition-transform duration-[800ms] ease-out"
