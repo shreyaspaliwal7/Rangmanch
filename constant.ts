@@ -35,7 +35,7 @@ export const MOVIES: Movie[] = [
     id: '2',
     title: 'Second Take',
     year: '2025',
-    thumbnail: '/WhatsApp Image 2026-01-28 at 9.39.10 PM.jpeg',
+    thumbnail: '/second take main.jpeg',
     description: 'A deep dive into the soul of the city of lakes, exploring the lives that make Bhopal what it is today.'
   },
 ];
@@ -46,6 +46,8 @@ export const GALLERY: GalleryItem[] = [
   { id: 'g3', url: '/photo3.jpeg'},
   { id: 'g4', url: '/photo4.jpeg'},
   { id: 'g5', url: '/photo5.jpeg' },
+  { id: 'g6', url: '/phoro6.jpeg' },
+  { id: 'g7', url: '/secondtake.jpeg' },
 ];
 
 export const COLORS = {
