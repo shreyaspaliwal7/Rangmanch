@@ -5,11 +5,18 @@ const Team: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
 
   const getDriveImage = (url: string) => {
-    // Extract the ID from any standard Google Drive link
-    const match = url.match(/[-\w]{25,}/);
-    const id = match ? match[0] : '';
-    return id ? `https://drive.google.com/thumbnail?id=${id}&sz=w1000` : url;
+    if (!url || !url.includes('drive.google.com')) return url;
+
+    // Extracts the ID from any Drive link format
+    const match = url.match(/(?:id=|\/d\/)([\w-]{25,})/);
+    const id = match ? match[1] : '';
+
+    if (!id) return url;
+
+    // This endpoint is much more "React-friendly"
+    return `https://drive.google.com/thumbnail?id=${id}&sz=s1000`;
   };
+
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
@@ -39,7 +46,7 @@ const Team: React.FC = () => {
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {TEAM_MEMBERS.map((member, index) => (
             <div
-              key={member.id}
+              // key={member.id}
               className="group relative animate-fadeInUp"
               style={{ animationDelay: `${0.3 + index * 0.1}s`, opacity: 0, animationFillMode: 'forwards' }}
             >
@@ -49,6 +56,10 @@ const Team: React.FC = () => {
                   src={getDriveImage(member.image)}
                   alt={member.name}
                   referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    // Optional: Add a fallback if the link still fails
+                    (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=' + member.name;
+                  }}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                 />
 
@@ -69,51 +80,57 @@ const Team: React.FC = () => {
                 <span className="text-[#c5a059] text-[9px] uppercase tracking-[0.3em] font-bold block mb-3">{member.role}</span>
 
                 <div className="flex justify-center gap-6 opacity-0 group-hover:opacity-100 transition-all duration-500 mt-2">
-                  {/* Instagram Icon */}
-                  <a
-                    href={member.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-stone-400 hover:text-[#c5a059] transition-colors duration-300"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="18"
-                      height="18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                  </a>
 
-                  {/* LinkedIn Icon */}
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-stone-400 hover:text-[#c5a059] transition-colors duration-300"
-                  >
-                    <svg
-                      viewBox="0 0 24 24"
-                      width="18"
-                      height="18"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      fill="none"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                  {/* Instagram Icon - Shows only if member.instagram exists */}
+                  {member.instagram && (
+                    <a
+                      href={member.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-stone-400 hover:text-[#c5a059] transition-colors duration-300"
                     >
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect x="2" y="9" width="4" height="12"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                  </a>
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                      </svg>
+                    </a>
+                  )}
+
+                  {/* LinkedIn Icon - Shows only if member.linkedin exists */}
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-stone-400 hover:text-[#c5a059] transition-colors duration-300"
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        width="18"
+                        height="18"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                      </svg>
+                    </a>
+                  )}
+
                 </div>
               </div>
             </div>

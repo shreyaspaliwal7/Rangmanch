@@ -23,22 +23,13 @@ const Footer: React.FC = () => {
     },
     {
       name: 'LinkedIn',
-      url: '',
+      url: 'https://www.linkedin.com/in/rangmanch-manit/',
       icon: (
         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
         </svg>
       )
     },
-    {
-      name: 'Facebook',
-      url: '',
-      icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.325-1.325z" />
-        </svg>
-      )
-    }
   ];
 
   return (
@@ -70,31 +61,35 @@ const Footer: React.FC = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="space-y-4 max-w-sm">
               <p className="text-stone-500 text-xs md:text-sm leading-relaxed italic">
                 "We don't just make films; we capture the transient beauty of existence."
               </p>
-              <a href="mailto:rangmanch.manit@gmail.com" className="text-[#c5a059] text-xs font-bold uppercase tracking-widest hover:underline decoration-1 underline-offset-4">
-                rangmanch.manit@gmail.com
+              <a href="mailto:rangmanchmanit@gmail.com" className="text-[#c5a059] text-xs font-bold tracking-widest hover:underline decoration-1 underline-offset-4">
+                rangmanchmanit@gmail.com
               </a>
             </div>
           </div>
 
           {/* Right Column: HQ Address */}
+
           <div className="flex flex-col items-center md:items-end text-center md:text-right space-y-10">
-            <div>
-              <h4 className="text-[#c5a059] font-bold uppercase tracking-[0.4em] text-[10px] mb-8">Address</h4>
-              <p className="text-stone-400 text-sm md:text-base leading-relaxed max-w-xs font-light">
-                Maulana Azad National Institute of Technology,<br />
-                Link Road Number 3, Bhopal,<br />
-                Madhya Pradesh 462003
-              </p>
-            </div>
-            
+            <a href="https://maps.app.goo.gl/ZERHwrJJcutMMMig8">
+              <div>
+                <h4 className="text-[#c5a059] font-bold uppercase tracking-[0.4em] text-[10px] mb-8">Address</h4>
+                <p className="text-stone-400 text-sm md:text-base leading-relaxed max-w-xs font-light">
+                  Maulana Azad National Institute of Technology,<br />
+                  Link Road Number 3, Bhopal,<br />
+                  Madhya Pradesh 462003
+                </p>
+              </div>
+            </a>
+
             <div className="space-y-1">
               <span className="text-stone-600 text-[10px] uppercase tracking-[0.3em] block">Contact</span>
-              <span className="text-stone-300 text-sm block">+91 8989841407</span>
+              <span className="text-xl text-[#c5a059] block">ADITYA SONI</span>
+              <a href='tel:+918989841407' className="text-stone-300 text-sm block">+91 8989841407</a>
             </div>
           </div>
         </div>
